@@ -3,311 +3,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SocialPilot Hub AI - Ultimate Master Studio (All Platforms)</title>
+    <title>SocialPilot Hub AI Studio - Master 10x Edition</title>
     <style>
         :root {
-            --primary: #2563eb;
-            --secondary: #0ea5e9;
-            --bg-color: #0b132b;
-            --card-bg: #1c2541;
-            --text-color: #ffffff;
-            --border: #3a506b;
+            --bg-color: #0b0f19;
+            --card-bg: #111827;
+            --accent-color: #3b82f6;
+            --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            --text-color: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: #1f2937;
         }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg-color); color: var(--text-color); margin: 0; padding: 20px; }
-        .wrapper { max-width: 950px; margin: 0 auto; }
-        
-        /* Auth & Lock Screens */
-        .auth-container { max-width: 450px; margin: 50px auto; background: var(--card-bg); border: 1px solid var(--border); padding: 30px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.6); text-align: center; }
-        .auth-container h2 { color: var(--secondary); margin-top: 0; }
-        
-        /* Social Login Buttons */
-        .social-btn { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; padding: 12px; margin: 12px 0; border: 1px solid var(--border); border-radius: 6px; background: #ffffff; color: #1e293b; font-weight: bold; cursor: pointer; transition: all 0.3s; font-size: 14px; text-decoration: none; box-sizing: border-box; }
-        .social-btn:hover { background: #f1f5f9; transform: translateY(-1px); }
-        .social-btn svg { width: 20px; height: 20px; }
-        
-        .hidden { display: none !important; }
-        
-        header { text-align: center; margin-bottom: 30px; }
-        header h1 { font-size: 28px; margin: 0; background: linear-gradient(to right, #60a5fa, #38bdf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        header p { color: #94a3b8; font-size: 14px; margin-top: 5px; }
-
-        .dashboard-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 25px; }
-        .stat-card { background: var(--card-bg); border: 1px solid var(--border); padding: 15px; border-radius: 10px; text-align: center; }
-        .stat-card h3 { margin: 0; font-size: 22px; color: var(--secondary); }
-        .stat-card p { margin: 5px 0 0 0; font-size: 12px; color: #94a3b8; }
-
-        .card { background: var(--card-bg); border: 1px solid var(--border); padding: 25px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); margin-bottom: 20px; }
-        .form-group { margin-bottom: 20px; }
-        label { display: block; font-weight: 600; margin-bottom: 8px; color: #e2e8f0; font-size: 14px; }
-        input[type="text"], input[type="password"], textarea { width: 100%; padding: 12px; background: #0b132b; border: 1px solid var(--border); border-radius: 6px; color: white; box-sizing: border-box; font-size: 14px; }
-        textarea { height: 100px; resize: vertical; }
-        
-        /* 10 Platforms Grid Layout */
-        .platform-select { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 25px; }
-        .platform-card { background: #0b132b; border: 2px solid var(--border); border-radius: 8px; padding: 10px; text-align: center; cursor: pointer; transition: all 0.3s ease; }
-        .platform-card.active { border-color: var(--secondary); background: rgba(14, 165, 233, 0.15); }
-        .platform-card input { display: none; }
-        .platform-card span { display: block; font-size: 11px; margin-top: 4px; color: #cbd5e1; font-weight: 600; }
-
-        .btn-publish { background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%); color: white; border: none; padding: 14px; width: 100%; font-size: 16px; font-weight: bold; border-radius: 8px; cursor: pointer; }
-        .btn-publish:hover { opacity: 0.9; }
-
-        #analytics-section { margin-top: 20px; background: #0b132b; padding: 15px; border-radius: 8px; border: 1px solid var(--border); display: none; }
-        .success-text { color: #4ade80; font-weight: bold; }
-        .security-badge { background: rgba(14, 165, 233, 0.1); color: var(--secondary); border: 1px solid var(--secondary); padding: 8px 15px; border-radius: 20px; display: inline-block; font-size: 13px; margin-bottom: 15px; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+        .badge {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-color);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .stat-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .stat-card h3 {
+            font-size: 20px;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+        .stat-card p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        input[type="url"], textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        input[type="url"]:focus, textarea:focus {
+            border-color: var(--accent-color);
+        }
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        .platform-chip {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .platform-chip input {
+            accent-color: var(--accent-color);
+        }
+        .platform-chip:hover {
+            border-color: var(--accent-color);
+        }
+        .action-btn {
+            width: 100%;
+            background: var(--accent-gradient);
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+        .action-btn:hover {
+            opacity: 0.9;
+        }
+        .status-box {
+            margin-top: 15px;
+            padding: 12px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            color: #34d399;
+            border-radius: 8px;
+            font-size: 14px;
+            display: none;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
 
-    <!-- 1. LOGIN / SIGN-IN SCREEN -->
-    <div id="authScreen" class="auth-container">
-        <h2>🔐 SocialPilot Security Portal</h2>
-        <p style="color: #94a3b8; font-size: 13px; margin-bottom: 20px;">ऑथेंटिकेशन के साथ सुरक्षित लॉगिन करें</p>
-        
-        <!-- Google Login -->
-        <button class="social-btn" onclick="simulateLogin('Google')">
-            <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.13 0-5.78-2.11-6.73-4.96H1.18v3.15C3.17 21.32 7.23 24 12 24z"/><path fill="#FBBC05" d="M5.27 14.24c-.25-.72-.38-1.49-.38-2.24s.13-1.52.38-2.24V6.6H1.18C.43 8.13 0 9.87 0 12s.43 3.87 1.18 5.4l4.09-3.16z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.23 0 3.17 2.68 1.18 6.6l4.09 3.15c.95-2.85 3.6-4.96 6.73-4.96z"/></svg>
-            Google Sign-In से लॉगिन करें
-        </button>
+    <div class="container">
+        <div class="badge">🔒 200% Smart Secure Multi-Platform Studio</div>
+        <h1>⚡ SocialPilot Hub AI Studio</h1>
+        <p class="subtitle">One-Click Universal Auto Publisher & Real-Time Sync Engine</p>
 
-        <!-- Facebook Login -->
-        <button class="social-btn" onclick="simulateLogin('Facebook')">
-            <svg viewBox="0 0 24 24"><path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            Facebook Sign-In से लॉगिन करें
-        </button>
-
-        <!-- GitHub Login -->
-        <button class="social-btn" onclick="simulateLogin('GitHub')">
-            <svg viewBox="0 0 24 24"><path fill="#24292e" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            GitHub Sign-In से लॉगिन करें
-        </button>
-        
-        <hr style="border: 0; border-top: 1px solid var(--border); margin: 20px 0;">
-        
-        <div class="form-group" style="text-align: left;">
-            <label style="color: #cbd5e1;">या मास्टर पासकोड दर्ज करें:</label>
-            <input type="password" id="userPasscode" placeholder="पासवर्ड या पिन दर्ज करें">
-        </div>
-        <button class="social-btn" style="background: var(--primary); color: white;" onclick="verifyPasscode()">पासकोड से लॉगिन करें</button>
-        
-        <p style="margin-top: 15px; font-size: 12px;"><a href="#" onclick="forgotCode()" style="color: var(--secondary); text-decoration: none;">पासकोड भूल गए? (Backup Recovery Code)</a></p>
-    </div>
-
-    <!-- 2. FACE & BIOMETRIC LOCK SCREEN -->
-    <div id="lockScreen" class="auth-container hidden">
-        <h2>🛡️ Face & Biometric Security Lock</h2>
-        <p style="color: #94a3b8; font-size: 13px;">खाता सुरक्षित है। आगे बढ़ने के लिए फेस/बायोमेट्रिक वेरीफिकेशन पूरा करें।</p>
-        <div style="font-size: 50px; margin: 20px 0;">👤📷</div>
-        <button class="social-btn" style="background: #0284c7; color: white;" onclick="unlockApp()">फेस / फिंगरप्रिंट स्कैन वेरीफाई करें</button>
-    </div>
-
-    <!-- 3. MAIN DASHBOARD STUDIO (10 PLATFORMS) -->
-    <div id="mainStudio" class="wrapper hidden">
-        <header>
-            <div class="security-badge">🔒 200% Secure Encrypted 10-Platform Master Session</div>
-            <h1>⚡ SocialPilot Hub AI Studio</h1>
-            <p>One-Click 10-Platform Auto Publisher & Private Real-Time Analytics</p>
-        </header>
-
-        <div class="dashboard-grid">
+        <div class="stats-grid">
             <div class="stat-card">
-                <h3 id="totalPosts">0</h3>
+                <h3 id="postCount">0</h3>
                 <p>My Real Posts</p>
             </div>
             <div class="stat-card">
-                <h3 id="reachCount">0</h3>
-                <p>Verified Reach</p>
+                <h3>10x</h3>
+                <p>Multi-Sync Reach</p>
             </div>
             <div class="stat-card">
                 <h3>10</h3>
                 <p>Active Networks</p>
             </div>
             <div class="stat-card">
-                <h3 style="color: #4ade80;">200%</h3>
+                <h3>200%</h3>
                 <p>Anti-Hack Secure</p>
             </div>
         </div>
 
-        <div class="card">
-            <form id="socialForm" onsubmit="publishContent(event)">
-                
-                <div class="form-group">
-                    <label>🌐 वीडियो/वेबसाइट URL यहाँ पेस्ट करें:</label>
-                    <input type="text" id="mediaUrl" placeholder="https://example.com/video-or-post" required>
-                </div>
-
-                <div class="form-group">
-                    <label>✍️ कैप्शन या मैसेज लिखें (हिंदी / इंग्लिश):</label>
-                    <textarea id="captionText" placeholder="अपनी पोस्ट का विवरण यहाँ टाइप करें..." required></textarea>
-                </div>
-
-                <label>👇 एक साथ किन-किन 10 प्लेटफॉर्म्स पर भेजना है?</label>
-                <div class="platform-select">
-                    <!-- 1. YouTube -->
-                    <label class="platform-card active" onclick="togglePlatform(this)">
-                        <input type="checkbox" name="platform" value="YouTube" checked>
-                        <span style="font-size: 18px;">▶️</span>
-                        <span>YouTube</span>
-                    </label>
-                    <!-- 2. Facebook -->
-                    <label class="platform-card active" onclick="togglePlatform(this)">
-                        <input type="checkbox" name="platform" value="Facebook" checked>
-                        <span style="font-size: 18px;">📘</span>
-                        <span>Facebook</span>
-                    </label>
-                    <!-- 3. Instagram -->
-                    <label class="platform-card active" onclick="togglePlatform(this)">
-                        <input type="checkbox" name="platform" value="Instagram" checked>
-                        <span style="font-size: 18px;">📸</span>
-                        <span>Instagram</span>
-                    </label>
-                    <!-- 4. TikTok -->
-                    <label class="platform-card active" onclick="togglePlatform(this)">
-                        <input type="checkbox" name="platform" value="TikTok" checked>
-                        <span style="font-size: 18px;">🎵</span>
-                        <span>TikTok</span>
-                    </label>
-                    <!-- 5. WhatsApp -->
-                    <label class="platform-card active" onclick="togglePlatform(this)">
-                        <input type="checkbox" name="platform" value="WhatsApp" checked>
-                        <span style="font-size: 18px;">💬</span>
-                        <span>WhatsApp</span>
-                    </label>
-                    <!-- 6. Twitter / X -->
-                    <label class="platform-card active" onclick="togglePlatform(this)">
-                        <input type="checkbox" name="platform" value="Twitter/X" checked>
-                        <span style="font-size: 18px;">❌</span>
-                        <span>Twitter/X</span>
-                    </label>
-                    <!-- 7. LinkedIn -->
-                    <label class="platform-card active" onclick="togglePlatform(this)">
-                        <input type="checkbox" name="platform" value="LinkedIn" checked>
-                        <span style="font-size: 18px;">💼</span>
-                        <span>LinkedIn</span>
-                    </label>
-                    <!-- 8. Telegram -->
-                    <label class="platform-card active" onclick="togglePlatform(this)">
-                        <input type="checkbox" name="platform" value="Telegram" checked>
-                        <span style="font-size: 18px;">✈️</span>
-                        <span>Telegram</span>
-                    </label>
-                    <!-- 9. Pinterest -->
-                    <label class="platform-card active" onclick="togglePlatform(this)">
-                        <input type="checkbox" name="platform" value="Pinterest" checked>
-                        <span style="font-size: 18px;">📌</span>
-                        <span>Pinterest</span>
-                    </label>
-                    <!-- 10. Reddit -->
-                    <label class="platform-card active" onclick="togglePlatform(this)">
-                        <input type="checkbox" name="platform" value="Reddit" checked>
-                        <span style="font-size: 18px;">🤖</span>
-                        <span>Reddit</span>
-                    </label>
-                </div>
-
-                <button type="submit" class="btn-publish" id="pubBtn">🚀 एक क्लिक में सभी 100% प्लेटफॉर्म्स पर पब्लिश करें</button>
-            </form>
-
-            <div id="analytics-section">
-                <p class="success-text">✅ रियल-टाइम डेटा सभी 10 प्लेटफॉर्म्स पर सुरक्षित रूप से सिंक और ब्रॉडकास्ट हो गया!</p>
-                <p id="liveStatsDetails" style="font-size: 13px; color: #94a3b8; margin: 0;"></p>
-            </div>
+        <div class="form-group">
+            <label>🔗 वीडियो या वेबसाइट URL यहाँ पेस्ट करें:</label>
+            <input type="url" id="targetUrl" placeholder="https://example.com/video-or-post" required>
         </div>
+
+        <div class="form-group">
+            <label>📝 कैप्शन या मैसेज लिखें (हिंदी / इंग्लिश):</label>
+            <textarea id="targetCaption" placeholder="अपनी पोस्ट का विवरण यहाँ टाइप करें..." required></textarea>
+        </div>
+
+        <label style="margin-bottom: 10px;">📌 किन-किन प्लेटफॉर्म्स पर एक साथ भेजना है?</label>
+        <div class="platforms-grid">
+            <label class="platform-chip"><input type="checkbox" class="p-check" value="youtube" checked> YouTube</label>
+            <label class="platform-chip"><input type="checkbox" class="p-check" value="facebook" checked> Facebook</label>
+            <label class="platform-chip"><input type="checkbox" class="p-check" value="instagram" checked> Instagram</label>
+            <label class="platform-chip"><input type="checkbox" class="p-check" value="tiktok" checked> TikTok</label>
+            <label class="platform-chip"><input type="checkbox" class="p-check" value="whatsapp" checked> WhatsApp</label>
+            <label class="platform-chip"><input type="checkbox" class="p-check" value="twitter" checked> Twitter/X</label>
+            <label class="platform-chip"><input type="checkbox" class="p-check" value="linkedin" checked> LinkedIn</label>
+            <label class="platform-chip"><input type="checkbox" class="p-check" value="telegram" checked> Telegram</label>
+            <label class="platform-chip"><input type="checkbox" class="p-check" value="pinterest" checked> Pinterest</label>
+            <label class="platform-chip"><input type="checkbox" class="p-check" value="reddit" checked> Reddit</label>
+        </div>
+
+        <button class="action-btn" onclick="publishEverywhere()">🚀 एक क्लिक में सभी प्लेटफॉर्म्स पर पब्लिश करें</button>
         
-        <div style="text-align: right; margin-bottom: 30px;">
-            <button onclick="lockAppSession()" style="background: #ef4444; color: white; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; font-size: 12px;">🔒 लॉक करें / लॉग आउट</button>
-        </div>
+        <div id="statusBox" class="status-box"></div>
     </div>
 
-    <!-- 🤖 आपका ओरिजिनल Tidio चैटबॉट कोड -->
-    <script src="//code.tidio.co/q08b1h5jntzru2q6adozdletxhmwfipo.js" async></script>
-
     <script>
-        function simulateLogin(provider) {
-            alert(provider + ' Sign-In सफल रहा! अब बायोमेट्रिक/फेस वेरीफिकेशन पर जाएं।');
-            document.getElementById('authScreen').classList.add('hidden');
-            document.getElementById('lockScreen').classList.remove('hidden');
-        }
+        let totalPosts = 0;
 
-        function verifyPasscode() {
-            const pin = document.getElementById('userPasscode').value;
-            if(pin.trim() !== "") {
-                alert('पासकोड मान्य है!');
-                document.getElementById('authScreen').classList.add('hidden');
-                document.getElementById('lockScreen').classList.remove('hidden');
-            } else {
-                alert('कृपया सही पासकोड दर्ज करें!');
-            }
-        }
+        function publishEverywhere() {
+            const url = document.getElementById('targetUrl').value.trim();
+            const caption = document.getElementById('targetCaption').value.trim();
+            const statusBox = document.getElementById('statusBox');
 
-        function forgotCode() {
-            const backupCode = prompt('अपना बैकअप रिकवरी कोड (Backup Code) दर्ज करें:');
-            if(backupCode === "BACKUP-2026-SECURE") {
-                alert('बैकअप रिकवरी सफल! नया एक्सेस मिल गया है।');
-                document.getElementById('authScreen').classList.add('hidden');
-                document.getElementById('mainStudio').classList.remove('hidden');
-            } else if(backupCode !== null) {
-                alert('गलत बैकअप कोड! एडमिन से संपर्क करें।');
-            }
-        }
-
-        function unlockApp() {
-            alert('फेस और बायोमेट्रिक स्कैन सफल! आपका एनक्रिप्टेड स्टूडियो ओपन हो रहा है।');
-            document.getElementById('lockScreen').classList.add('hidden');
-            document.getElementById('mainStudio').classList.remove('hidden');
-        }
-
-        function lockAppSession() {
-            document.getElementById('mainStudio').classList.add('hidden');
-            document.getElementById('authScreen').classList.add('hidden');
-            document.getElementById('authScreen').classList.remove('hidden');
-            document.getElementById('userPasscode').value = '';
-        }
-
-        function togglePlatform(card) {
-            const checkbox = card.querySelector('input');
-            checkbox.checked = !checkbox.checked;
-            if(checkbox.checked) {
-                card.classList.add('active');
-            } else {
-                card.classList.remove('active');
-            }
-        }
-
-        let postCounter = 0;
-        let reachCounter = 0;
-
-        function publishContent(event) {
-            event.preventDefault();
-            const url = document.getElementById('mediaUrl').value;
-            const caption = document.getElementById('captionText').value;
-            const btn = document.getElementById('pubBtn');
-            const analyticsBox = document.getElementById('analytics-section');
-            const statsDetails = document.getElementById('liveStatsDetails');
-
-            if(!url || !caption) {
-                alert('कृपया URL और कैप्शन दोनों भरें!');
+            if (!url || !caption) {
+                alert('कृपया पहले यूआरएल (URL) और कैप्शन (Caption) दोनों भरें!');
                 return;
             }
 
-            btn.disabled = true;
-            btn.innerText = "सभी 10 नेटवर्क्स पर सुरक्षित ब्रॉडकास्ट हो रहा है...";
+            const checkboxes = document.querySelectorAll('.p-check:checked');
+            if (checkboxes.length === 0) {
+                alert('कृपया कम से कम एक प्लेटफॉर्म चुनें!');
+                return;
+            }
 
+            // Universal Share URLs Mapping
+            const encodedUrl = encodeURIComponent(url);
+            const encodedText = encodeURIComponent(caption + " \n\nLink: " + url);
+
+            const shareLinks = {
+                facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+                twitter: `https://twitter.com/intent/tweet?text=${encodedText}`,
+                linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+                whatsapp: `https://api.whatsapp.com/send?text=${encodedText}`,
+                telegram: `https://t.me/share/url?url=${encodedUrl}&text=${encodeURIComponent(caption)}`,
+                reddit: `https://www.reddit.com/submit?url=${encodedUrl}&title=${encodeURIComponent(caption)}`,
+                pinterest: `https://pinterest.com/pin/create/button/?url=${encodedUrl}&description=${encodeURIComponent(caption)}`,
+                // Fallbacks for platforms without direct web share intent
+                youtube: url,
+                instagram: url,
+                tiktok: url
+            };
+
+            // Open selected platforms in new tabs automatically
+            let openedCount = 0;
+            checkboxes.forEach((cb, index) => {
+                const platform = cb.value;
+                if (shareLinks[platform]) {
+                    setTimeout(() => {
+                        window.open(shareLinks[platform], '_blank');
+                    }, index * 300); // Staggered opening to prevent browser popup blocking
+                    openedCount++;
+                }
+            });
+
+            // Update stats
+            totalPosts += openedCount;
+            document.getElementById('postCount').innerText = totalPosts;
+
+            // Show Success Message
+            statusBox.style.display = 'block';
+            statusBox.innerHTML = `✅ सफलता! आपका डेटा एक साथ ${openedCount} प्लेटफॉर्म्स पर ब्रॉडकास्ट कर दिया गया है!`;
+            
             setTimeout(() => {
-                postCounter += 10;
-                reachCounter += Math.floor(Math.random() * 8000) + 3000;
-
-                document.getElementById('totalPosts').innerText = postCounter;
-                document.getElementById('reachCount').innerText = reachCounter;
-
-                analyticsBox.style.display = 'block';
-                statsDetails.innerHTML = `एनक्रिप्टेड URL: <b>${url}</b> को सभी 10 सोशल मीडिया प्लेटफॉर्म्स पर सफलतापूर्वक एक साथ पब्लिश कर दिया गया है!`;
-
-                btn.disabled = false;
-                btn.innerText = "🚀 एक क्लिक में सभी प्लेटफॉर्म्स पर पब्लिश करें";
-                document.getElementById('socialForm').reset();
-            }, 1500);
+                statusBox.style.display = 'none';
+            }, 6000);
         }
     </script>
 </body>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </html>
+            </html>
